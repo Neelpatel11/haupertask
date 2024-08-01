@@ -34,7 +34,7 @@ const UserManagement = () => {
     dispatch(addUser(newUser)).then((response) => {
       if (response.error) {
         console.log(response)
-        const errorMessage = response.error.response?.data?.error || 'Error adding user (Email alredy in use)';
+        const errorMessage = response.error.response?.data?.error || 'Error adding user (Email already in use)';
         toast.error(errorMessage);
       } else {
         dispatch(fetchUsers());
@@ -58,7 +58,7 @@ const UserManagement = () => {
     }
     dispatch(updateUser({ id: editableUserId, user: editableUserData })).then((response) => {
       if (response.error) {
-        const errorMessage = response.error.response?.data?.error || 'Error adding user (Email alredy in use)';
+        const errorMessage = response.error.response?.data?.error || 'Error adding user (Email already in use)';
         toast.error(errorMessage, {
           autoClose: 1000,
         });
