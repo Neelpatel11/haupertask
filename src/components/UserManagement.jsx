@@ -119,7 +119,7 @@ const UserManagement = () => {
           required
         />
         <input
-          type="text"
+          type="number"
           placeholder="Mobile"
           value={newUser.mobile}
           onChange={(e) => setNewUser({ ...newUser, mobile: e.target.value })}
