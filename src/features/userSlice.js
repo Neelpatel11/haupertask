@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// const url = 'https://haupertaskbackend.onrender.com'; 
-const url = 'http://localhost:5000';
+const url = 'https://haupertaskbackend.onrender.com';   // for server
+// const url = 'http://localhost:5000';   //for local database 
 
 const initialState = {
   users: [],
