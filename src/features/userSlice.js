@@ -1,6 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+// const url = 'https://haupertaskbackend.onrender.com'; 
+const url = 'http://localhost:5000';
+
 const initialState = {
   users: [],
   deletedUsers: [],
@@ -10,32 +13,32 @@ const initialState = {
 
 // Thunks
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
-  const response = await axios.get('http://localhost:5000/users');
+  const response = await axios.get(`${url}/users`);
   return response.data;
 });
 
 export const fetchDeletedUsers = createAsyncThunk('users/fetchDeletedUsers', async () => {
-  const response = await axios.get('http://localhost:5000/deleted-users');
+  const response = await axios.get(`${url}/deleted-users`);
   return response.data;
 });
 
 export const addUser = createAsyncThunk('users/addUser', async (user) => {
-  const response = await axios.post('http://localhost:5000/users', user);
+  const response = await axios.post(`${url}/users`, user);
   return response.data;
 });
 
 export const updateUser = createAsyncThunk('users/updateUser', async ({ id, user }) => {
-  const response = await axios.put(`http://localhost:5000/users/${id}`, user);
+  const response = await axios.put(`${url}/users/${id}`, user);
   return response.data;
 });
 
 export const deleteUser = createAsyncThunk('users/deleteUser', async (id) => {
-  await axios.delete(`http://localhost:5000/users/${id}`);
+  await axios.delete(`${url}/users/${id}`);
   return id;
 });
 
 export const restoreUser = createAsyncThunk('users/restoreUser', async (id) => {
-  const response = await axios.put(`http://localhost:5000/restore-user/${id}`);
+  const response = await axios.put(`${url}/restore-user/${id}`);
   return response.data;
 });
 

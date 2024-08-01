@@ -27,10 +27,15 @@ const UserManagement = () => {
   }, [dispatch]);
 
   const handleAddUser = () => {
+    if (!newUser.name || !newUser.email || !newUser.mobile) {
+      toast.error("All fields are required.");
+      return;
+    }
     dispatch(addUser(newUser)).then((response) => {
       if (response.error) {
         console.log(response)
-        toast.error("Email already exists");
+        const errorMessage = response.error.response?.data?.error || 'Error adding user (Email alredy in use)';
+        toast.error(errorMessage);
       } else {
         dispatch(fetchUsers());
         setNewUser({ name: '', email: '', mobile: '' });
@@ -47,16 +52,20 @@ const UserManagement = () => {
   };
 
   const handleUpdateUser = () => {
+    if (!editableUserData.name || !editableUserData.email || !editableUserData.mobile) {
+      toast.error("All fields are required.");
+      return;
+    }
     dispatch(updateUser({ id: editableUserId, user: editableUserData })).then((response) => {
       if (response.error) {
-        toast.error(response.error.message , {
+        toast.error(response.error.message, {
           autoClose: 1000,
         });
       } else {
         dispatch(fetchUsers());
         setEditableUserId(null);
         setEditableUserData({ name: '', email: '', mobile: '' });
-        toast.success('User updated successfully' ,{
+        toast.success('User updated successfully', {
           autoClose: 1000,
         });
       }
@@ -67,7 +76,7 @@ const UserManagement = () => {
     dispatch(deleteUser(id)).then(() => {
       dispatch(fetchUsers());
       dispatch(fetchDeletedUsers());
-      toast.success('User deleted successfully' , {
+      toast.success('User deleted successfully', {
         autoClose: 1000,
       });
     });
@@ -77,7 +86,7 @@ const UserManagement = () => {
     dispatch(restoreUser(id)).then(() => {
       dispatch(fetchUsers());
       dispatch(fetchDeletedUsers());
-      toast.success('User restored successfully' , {
+      toast.success('User restored successfully', {
         autoClose: 1000,
       });
     });
