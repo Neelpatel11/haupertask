@@ -1,0 +1,104 @@
+.user-management {
+    font-family: Arial, sans-serif;
+    width: 600px;
+    margin: 0 auto;
+  }
+  
+  .tabs {
+    display: flex;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px;
+  }
+  
+  .tabs button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px 4px 0 0;
+    background: #f1f1f1;
+    cursor: pointer;
+    outline: none;
+    font-weight: bold;
+    color: #333;
+    margin-right: 5px;
+  }
+  
+  .tabs button.active {
+    background: #007bff;
+    color: white;
+    border-bottom: 2px solid white;
+  }
+  
+  .tabs button:hover {
+    background: #e0e0e0;
+  }
+  
+  .add-user {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .add-user input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: calc(33% - 10px);
+  }
+  
+  .add-user-button {
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .user-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .user-table th, .user-table td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  .user-table th {
+    background: #f1f1f1;
+  }
+  
+  .user-table td button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .edit-button {
+    background: #007bff;
+    color: white;
+  }
+  
+  .delete-button {
+    background: #6c757d;
+    color: white;
+  }
+  
+  .restore-button {
+    background: #28a745;
+    color: white;
+  }
+  
+  .save-button {
+    background: #28a745;
+    color: white;
+  }
+  
+  .cancel-button {
+    background: #dc3545;
+    color: white;
+  }
+  
