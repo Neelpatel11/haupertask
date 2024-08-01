@@ -58,7 +58,8 @@ const UserManagement = () => {
     }
     dispatch(updateUser({ id: editableUserId, user: editableUserData })).then((response) => {
       if (response.error) {
-        toast.error(response.error.message, {
+        const errorMessage = response.error.response?.data?.error || 'Error adding user (Email alredy in use)';
+        toast.error(errorMessage, {
           autoClose: 1000,
         });
       } else {
